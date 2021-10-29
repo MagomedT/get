@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Kodelås spill</title>
+    <style> 
+        button{
+            padding: 25px;
+            
+        }
+        #prov{
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prøv å gjett den 3 siffrede koden!</h1>
+    </br>
+    <button onclick="sendTekst(this)">1</button>
+    <button onclick="sendTekst(this)">2</button>
+    <button onclick="sendTekst(this)">3</button>
+    </br>
+    <button onclick="sendTekst(this)">4</button>
+    <button onclick="sendTekst(this)">5</button>
+    <button onclick="sendTekst(this)">6</button>
+    </br>
+    <button onclick="sendTekst(this)">7</button>
+    <button onclick="sendTekst(this)">8</button>
+    <button onclick="sendTekst(this)">9</button>
+    </br>
+    <div id="tomDiv" style="font-size: 25px;"></div>
+    <button id="prov" onclick="provPass(this)" style="font-size: 18px;">KLIKK HER FOR Å PRØVE KODEN!</button>
+
+    <script>
+        
+        let passord = "381";
+        let userInput = "";
+    
+        function sendTekst(element) {
+            document.getElementById('tomDiv').innerHTML += element.innerHTML;
+            userInput += element.innerHTML;
+        }
+
+        function provPass(element){
+            console.log('userInput = ' + userInput);
+            if(userInput == passord){
+                alert("Du gjettet riktig passord!");
+                location.reload();
+            }
+            else {
+                alert("Feil passord! taper...")
+                location.reload();
+            }
+        }
+
+
+    </script>
+</body>
+</html>
