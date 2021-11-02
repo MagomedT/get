@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: rgb(80, 80, 80);
+        }
+        div{
+            height: 200px;
+            width: 200px;
+            float: left;
+        }
+        #R1K1, #R1K3, #R2K2, #R2K4, #R3K1, #R3K3{
+            background-color: black;
+            border: 1px solid black;
+        }
+        #R1K2, #R1K4, #R2K1, #R2K3, #R3K2, #R3K4{
+            background-color: yellow;
+            border: 1px solid yellow;
+        }
+        #R1K1, #R2K1, #R3K1{
+            clear: left;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamoppgaven</title>
+</head>
+<body>
+    <h1 style="text-size: 100px;">Fellesoppgave</h1>
+    <hr>
+    <div id="R1K1" onclick="picture1(this)">Terje</div>
+    <div id="R1K2" onclick="picture2(this)"></div>
+    <div id="R1K3" onclick="picture3(this)"></div>
+    <div id="R1K4" onclick="picture4(this)"></div>
+
+    <div id="R2K1" onclick="picture5(this)"></div>
+    <div id="R2K2" onclick="picture6(this)"></div>
+    <div id="R2K3" onclick="picture7(this)"></div>
+    <div id="R2K4" onclick="picture8(this)"></div>
+
+    <div id="R3K1" onclick="picture9(this)"></div>
+    <div id="R3K2" onclick="picture10(this)"></div>
+    <div id="R3K3" onclick="picture11(this)"></div>
+    <div id="R3K4" onclick="picture12(this)"></div>
+    
+    
+    <script>
+        function picture1(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/logo.svg" > </div>';
+            console.log("onClick");
+        }
+        function picture2(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/joakim.jpg" > </div>';             
+            console.log("onClick");
+        }         
+        function picture3(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/Geir.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture4(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/elin.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture5(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/Bjornar.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture6(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/Terje.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture7(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/Linn.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture8(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/Therese.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture9(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/Marie.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture10(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/anita.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture11(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/lise.jpg" > </div>';             
+            console.log("onClick");
+        }       
+        function picture12(onclick) {
+            onclick.innerHTML = '<div> <img src="https://www.getacademy.no/assets/ansatt-bilder/eskil.jpg" > </div>';             
+            console.log("onClick");
+        }       
+
+
+    </script>
+</body>
+</html>
