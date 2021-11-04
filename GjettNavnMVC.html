@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gjett mitt navn</title>
+</head>
+<body>
+    <div id="app"></div>  
+
+    <script>   
+
+    let userinput = "";
+    const mittNavn = ["Magomed", "Mago", "Magamed"];
+    let svar = "";
+
+    show();
+    function show(){
+            let html = `
+            <h2>Hva heter jeg? (Case sensitive)</h2>
+            <input onchange="checkUserinput(this.value)" >
+            <h4 id="svar"></h4>
+            `;
+            app.innerHTML = html;
+    }
+
+    function checkUserinput(thisUserinput){
+        userinput = thisUserinput;
+        if(userinput == mittNavn[0] || userinput == mittNavn[1] || userinput == mittNavn[2]){
+            svar = "Riktig svar!";
+
+        } else{
+            svar = "Feil svar!";
+        }
+        document.getElementById('svar').innerHTML = svar;
+    }
+    
+    </script>
+
+</body>
+</html>
