@@ -6,42 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puslespill</title>
     <style>
-        body{
-            background-color: dark;
+        body {
+            background-color: #2e3136
         }
-        div{
+        .pictureDiv{
             float: left;
-            width: 402px;
-            height: 166px;
+            width: 49%;
+            height: 20vh;
             background-color:burlywood;
-            border: 1px solid black;
-            margin-right: 10px;
+            border: 1px solid black; 
         }
         
         #r1k1, #r2k1, #r3k1{
             clear: left;
+            
+            
         }
-        img {
+        /* img{
             width: 402px;
             height: 166px;
+        } */
+        img{
+            width: 100%;
+            height: 100%;
         }
-        
-
+        h1{
+            font-size: 100px;
+            text-align: center;
+        }
+        .mainC{
+            margin: auto;
+            width : 50%;
+            height: 100%;
+        }
 
     </style>
 </head>
 <body>
     <h1>Teamoppgave uke 3</h1>
 <hr>
+    <div class="mainC">
+    <div id="r1k1" class="pictureDiv" onclick="lagre1(this)"><img src="Terje_Kolderup_del3.jpg"></div>            <div id="r1k2" class="pictureDiv" onclick="send1(this)"></div>
 
-    <div id="r1k1"><img src="Terje_Kolderup_del3.jpg"></div>            <div id="r1k2"></div>
+    <div id="r2k1" class="pictureDiv" onclick="lagre2(this)"><img src="Terje_Kolderup_del2.jpg"></div>            <div id="r2k2" class="pictureDiv" onclick="send2(this)"></div>
 
-    <div id="r2k1"><img src="Terje_Kolderup_del2.jpg"></div>            <div id="r2k2"></div>
-
-    <div id="r3k1"><img src="Terje_Kolderup_del1.jpg"></div>            <div id="r3k2"></div>
-
+    <div id="r3k1" class="pictureDiv" onclick="lagre3(this)"><img src="Terje_Kolderup_del1.jpg"></div>            <div id="r3k2" class="pictureDiv" onclick="send3(this)"></div>
+    </div>
     <script>
-        
+
+        var brikke1;
+        var brikke2;
+        var brikke3;
+
+        function lagre1(element) {
+            brikke1 = element.innerHTML;
+
+        }
+
+        function lagre2(element) {
+            brikke2 = element.innerHTML;
+
+        }
+
+        function lagre3(element) {
+            brikke3 = element.innerHTML;
+        }
+
+        function send1(element) {
+            element.innerHTML = brikke3;
+            if(brikke3 != document.getElementById('r1k2').innerHTML){
+                element.innerHTML = `<div></div>`;
+                alert("Du plasserte feil!");
+            }
+        }
+
+        function send2(element) {
+            element.innerHTML = brikke2;
+            if(brikke2 != document.getElementById('r2k2').innerHTML){
+                element.innerHTML = `<div></div>`;
+                alert("Du plasserte feil!");
+            }
+        }
+
+        function send3(element) {
+            element.innerHTML = brikke1;
+            if(brikke1 != document.getElementById('r3k2').innerHTML){
+                element.innerHTML = `<div></div>`;
+                alert("Du plasserte feil!");
+            }
+        }
 
 
     </script>
