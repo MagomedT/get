@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            font-size: 300%;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        // 1. Lag tre nye knapper og legg til funksjonalitet for disse (controllere). Hva de skal gjøre velger du selv.
+        // 2. Gjør endringer i viewet, slik at det er tre eller flere smileys  - gjør det til deres eget spill
+
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+
+        // controller
+        function doClick() {
+            points += pointsPerClick;
+            smileyIndex = getNextSmileyIndex(smileyIndex);
+            updateView();
+        }
+
+        function buyUpgrade(upgradeCost) {
+            if (points < upgradeCost) return;
+            points -= upgradeCost;
+            pointsPerClick++;
+            updateView();
+        }
+
+        function reset(){
+            points = 0;
+            pointsPerClick = 1;
+            smileyIndex = 0;
+            updateView();
+        }
+
+        function downGrade(downgradeCost){
+            if (points > downgradeCost) return;
+            points -= downgradeCost;
+            updateView();
+        }
+
+        function increasePointsPerClick(){
+            pointsPerClick++;
+            updateView();
+        }
+
+        
+        function decreasePointsPerClick(){
+            if(pointsPerClick>0){
+                pointsPerClick--;
+            }
+            updateView();
+        }
+
+        
+        // view
+        updateView();
+        function updateView() {
+            var smiley = getSmiley(smileyIndex);
+            document.getElementById('app').innerHTML = `
+                <div id="image" onclick="doClick()" >${smiley}</div>
+                <div id="pointsInfo">${points}</div>
+                <button onclick="buyUpgrade(10)">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="downGrade(10)">nedgradering (10 poeng)</button>
+                <button onclick="increasePointsPerClick()">Øk point per click med 1</button>
+                <button onclick="decreasePointsPerClick()">Senk point per click med 1</button>
+                <button onclick="reset()">reset spillet</button>
+            `;
+        }
+
+        // hjelpefunksjoner
+        function getSmiley(aSmileyIndex) {
+            if(aSmileyIndex == 0) return '😀';
+            if(aSmileyIndex == 1) return '😁';
+            if(aSmileyIndex == 2) return '<img src="Terje.jpeg">';
+            return '';
+        }
+
+        function getNextSmileyIndex(aSmileyIndex) {
+            const maxSmileyIndex = 2;
+            aSmileyIndex++;
+            if (aSmileyIndex > maxSmileyIndex) {
+                aSmileyIndex = 0;
+            }
+            return aSmileyIndex;
+        }
+
+    </script>
+</body>
+
+</html>
