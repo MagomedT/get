@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.12.0.css">
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="controller.js"></script>
+    <script src="https://code.jquery.com/qunit/qunit-2.12.0.js"></script>
+
+    <script>
+
+        // model - deklarere variablene, men gi verdi i hver enkelt test
+        var points;
+        var pointsPerClick;
+        var smileyIndex;
+
+        // view - vi trenger en dummyversjon av updateView()
+        function updateView() { }
+
+        QUnit.module('click', function () {
+            QUnit.test('click increases points by 1', function (assert) {
+                points = 0;
+                pointsPerClick = 1;
+                smileyIndex = 0;
+                doClick();
+                let actualPoints = points;
+                let expectedPoints = 1;
+                assert.equal(actualPoints, expectedPoints);
+                let actualSmileyIndex = smileyIndex;
+                let expectedSmileyIndex = 1;
+                assert.equal(actualSmileyIndex, expectedSmileyIndex);
+            });
+        });
+
+        QUnit.module('reset', function () {
+            QUnit.test('tester reset funksjon, sette alle variabler ned tilabake til standard', function (assert) {
+                points = 10;
+                pointsPerClick = 2;
+                smileyIndex = 2;
+                reset();
+                let actualPoints = points;
+                let expectedPoints = 0;
+                assert.equal(actualPoints, expectedPoints);
+                let actualSmileyIndex = smileyIndex;
+                let expectedSmileyIndex = 0;
+                assert.equal(actualSmileyIndex, expectedSmileyIndex);
+                let actualPointPerClick = pointsPerClick;
+                let expectedPointsPerClick = 1;
+                assert.equal(actualPointPerClick, expectedPointsPerClick);
+            });
+        });
+
+
+        QUnit.module('buyUpgrade', function () {
+            QUnit.test('if points < 10, return', function (assert) {
+                points = 0;
+                pointsPerClick = 1;
+                buyUpgrade();
+                let actualPoints = points;
+                let expectedPoints = 0;
+                assert.equal(actualPoints, expectedPoints);
+                let actualPointPerClick = pointsPerClick;
+                let expectedPointsPerClick = 1;
+                assert.equal(actualPointPerClick, expectedPointsPerClick);
+
+            });
+
+                QUnit.test('pointsPerClick increase by 1, and points decrease by 10', function (assert) {
+                points = 20;
+                pointsPerClick = 1;
+                buyUpgrade();
+                let actualPoints = points;
+                let expectedPoints = 10;
+                assert.equal(actualPoints, expectedPoints);
+                let actualPointPerClick = pointsPerClick;
+                let expectedPointsPerClick = 2;
+                assert.equal(actualPointPerClick, expectedPointsPerClick);
+
+            });
+        });
+    
+
+        
+        QUnit.module('downGrade', function () {
+            QUnit.test('PointsPerClick decrease by 1, and points increase by 10', function (assert) {
+                points = 0;
+                pointsPerClick = 2;
+                downGrade();
+                let actualPoints = points;
+                let expectedPoints = 10;
+                assert.equal(actualPoints, expectedPoints);
+                let actualPointPerClick = pointsPerClick;
+                let expectedPointsPerClick = 1;
+                assert.equal(actualPointPerClick, expectedPointsPerClick);
+
+            });
+
+            QUnit.test('Hvis PointsPerClick er < 2', function (assert) {
+                points = 10;
+                pointsPerClick = 1;
+                downGrade();
+                let actualPoints = points;
+                let expectedPoints = 10;
+                assert.equal(actualPoints, expectedPoints);
+                let actualPointPerClick = pointsPerClick;
+                let expectedPointsPerClick = 1;
+                assert.equal(actualPointPerClick, expectedPointsPerClick);
+
+            });
+        });
+
+
+        
+        
+
+    </script>
+</body>
+
+</html>

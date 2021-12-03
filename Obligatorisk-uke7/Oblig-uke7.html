@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="controller.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        // 1. Lag tre nye knapper og legg til funksjonalitet for disse (controllere). Hva de skal gjøre velger du selv.
+        // 2. Gjør endringer i viewet, slik at det er tre eller flere smileys  - gjør det til deres eget spill
+
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+        var playerName = "";
+        var playerPoints = "";
+        
+        // view
+        updateView();
+        function updateView() {
+            var smiley = getSmiley(smileyIndex);
+            document.getElementById('app').innerHTML = `
+                <div id="image" onclick="doClick()" >${smiley}</div>
+                <div id="pointsInfo">${points}</div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="downGrade()">nedgradering (10 poeng)</button>
+                <button onclick="increasePointsPerClick()">Øk point per click med 1</button>
+                <button onclick="decreasePointsPerClick()">Senk point per click med 1</button>
+                <button onclick="reset()">reset spillet</button>
+                <br>
+                <br>
+                <label for="fname">Submit score (name):</label><br>
+                <input style=width:10%;" type="text" id="userInput" />
+                <input style=width:10%;" type="submit" onclick="displayName();" />
+                <br>
+                <br>
+                <div id="container">
+                <div class="row">
+                    <div class="name">${playerName}</div><div class="score">${playerPoints}</div>
+                </div>
+                </div>
+            `;
+        }
+
+
+    </script>
+</body>
+
+</html>
